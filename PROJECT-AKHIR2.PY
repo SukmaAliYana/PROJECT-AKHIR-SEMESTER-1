@@ -62,6 +62,10 @@ class LoginScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+
+        self.background_image(source="one_piece.jpg", allow_strech=True, keep_ratio=false)
+        self.add_widget(self.background_image)
+
         self.add_widget(self.layout)
 
         self.layout.add_widget(Label(text="Login", font_size=32))
@@ -200,6 +204,10 @@ class AdminScreen(Screen):
         super().__init__(**kwargs)
         self.current_user = None
         self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+
+        self.background_image(source="one_piece.jpg", allow_strech=True, keep_ratio=false)
+        self.add_widget(self.background_image)
+
         self.add_widget(self.layout)
 
         self.welcome_label = Label(text="", font_size=24)
