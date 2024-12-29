@@ -57,7 +57,7 @@ if not os.path.exists(USERS_FILE):
 class LoginScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        self.layout = BoxLayout(orientation='vertical', padding=150, spacing=10)
 
         self.background_image = Image(source="C://Users/Adam/OneDrive/Dokumen/RISET RIFQI/one piece.jpg", allow_stretch=True, keep_ratio=False)
         self.add_widget(self.background_image)
@@ -120,7 +120,7 @@ class LoginScreen(Screen):
 class DaftarScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        self.layout = BoxLayout(orientation='vertical', padding=150, spacing=10)
         self.add_widget(self.layout)
 
         self.layout.add_widget(Label(text="Daftar Akun Baru", font_size=32))
@@ -159,7 +159,7 @@ class UserScreen(Screen):
         super().__init__(**kwargs)
         self.username = None
         self.current_user = None
-        self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        self.layout = BoxLayout(orientation='vertical', padding=100, spacing=10)
         self.add_widget(self.layout)
 
         self.welcome_label = Label(text="", font_size=24)
@@ -195,14 +195,14 @@ class AdminScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self.current_user = None
-        self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
+        self.layout = BoxLayout(orientation='vertical', padding=150, spacing=10)
 
         self.background_image = Image(source="C:\Users\Adam\OneDrive\Dokumen\RISET RIFQI\Ice One Piece.jpg", allow_stretch=True, keep_ratio=False)
         self.add_widget(self.background_image)
 
         self.add_widget(self.layout)
 
-        self.welcome_label = Label(text="", font_size=24)
+        self.welcome_label = Label(text="", font_size=30, opacity=100)
         self.layout.add_widget(self.welcome_label)
         self.layout.add_widget(Button(text="Lihat Data Absensi", on_press=self.riwayat))
         self.layout.add_widget(Button(text="Mendaftar Akun Pengguna", on_press=self.daftar_pengguna))
