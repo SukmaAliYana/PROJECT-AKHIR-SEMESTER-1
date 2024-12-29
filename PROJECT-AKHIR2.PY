@@ -175,9 +175,9 @@ class UserScreen(Screen):
     def on_pre_enter(self, *args):
         # Update pesan selamat datang sesuai username
         if self.current_user:
-            self.welcome_label.text = f"Hi, Selamat datang {self.current_user}!"
+            self.welcome_label.text = f"Hi, Selamat Datang {self.current_user} !"
         else:
-            self.welcome_label.text = "Hi, Selamat datang!"
+            self.welcome_label.text = "Hi, Selamat Datang!"
 
     def absen(self, instance):
         AbsenPopup(username=self.current_user).open()
