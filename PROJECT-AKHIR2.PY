@@ -64,7 +64,7 @@ class LoginScreen(Screen):
 
         self.add_widget(self.layout)
 
-        self.layout.add_widget(Label(text="Login", font_size=32))
+        self.layout.add_widget(Label(text="Login", font_size=32, opacity=100))
         self.username_input = TextInput(hint_text="Username", multiline=False)
         self.password_input = TextInput(hint_text="Password", password=True, multiline=False)
         self.layout.add_widget(self.username_input)
@@ -162,7 +162,7 @@ class UserScreen(Screen):
         self.layout = BoxLayout(orientation='vertical', padding=100, spacing=10)
         self.add_widget(self.layout)
 
-        self.welcome_label = Label(text="", font_size=24)
+        self.welcome_label = Label(text="", font_size=30, opacity=100)
         self.layout.add_widget(self.welcome_label)
         self.layout.add_widget(Button(text="Absen Sekarang", on_press=self.absen))
         self.layout.add_widget(Button(text="Riwayat Absensi", on_press=self.riwayat))
