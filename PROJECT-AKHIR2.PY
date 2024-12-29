@@ -205,7 +205,7 @@ class AdminScreen(Screen):
         self.current_user = None
         self.layout = BoxLayout(orientation='vertical', padding=20, spacing=10)
 
-        self.background_image(source="one_piece.jpg", allow_strech=True, keep_ratio=false)
+        self.background_image = Image(source="C:\Users\Adam\OneDrive\Dokumen\RISET RIFQI\Ice One Piece.jpg", allow_stretch=True, keep_ratio=False)
         self.add_widget(self.background_image)
 
         self.add_widget(self.layout)
