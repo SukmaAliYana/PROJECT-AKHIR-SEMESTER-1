@@ -13,7 +13,6 @@ from kivy.core.window import Window
 from datetime import datetime
 import cv2
 
-# Direktori dan file lokal untuk data offline
 PHOTO_DIR = "absensi_photos"
 DATA_FILE = "absensi_data.json"
 USER_ACCOUNTS_FILE = "user_accounts.json"
@@ -34,17 +33,14 @@ if not os.path.exists(USER_ACCOUNTS_FILE):
     with open(USER_ACCOUNTS_FILE, "w") as f:
         json.dump(initial_accounts, f, indent=4)
 
-# Fungsi untuk memuat data akun
 def load_user_accounts():
     with open(USER_ACCOUNTS_FILE, "r") as f:
         return json.load(f)
 
-# Fungsi untuk menyimpan data akun
 def save_user_accounts(accounts):
     with open(USER_ACCOUNTS_FILE, "w") as f:
         json.dump(accounts, f, indent=4)
 
-# Memuat akun ke dalam variabel
 user_accounts = load_user_accounts()
 
 if not os.path.exists(PHOTO_DIR):
@@ -97,7 +93,6 @@ class LoginScreen(Screen):
         with open(USERS_FILE, 'r') as f:
             users = json.load(f)
 
-  # Sederhana: Admin akses khusus
         if username == "admin" and password == "admin123":
             self.manager.current = 'admin'
         elif username in user_accounts and user_accounts[username] == password:
@@ -114,11 +109,9 @@ class LoginScreen(Screen):
                 self.manager.get_screen('user').current_user = username
                 self.manager.current = 'user'
 
-        # Memeriksa apakah akun terdaftar di USERS_FILE
         with open(USERS_FILE, 'r') as f:
             users = json.load(f)
 
-        # Jika login gagal, tampilkan pesan error
         self.error_label.text = "Maaf, username atau password Anda salah"
 
     def daftar(self, instance):
@@ -142,11 +135,10 @@ class DaftarScreen(Screen):
         username = self.username_input.text
         password = self.password_input.text
 
-        # Memastikan username tidak kosong dan password cukup panjang
         if username and len(password) >= 4:
             with open(USERS_FILE, 'r+') as f:
                 users = json.load(f)
-                # Memeriksa apakah username sudah terdaftar
+
                 if any(user['username'] == username for user in users):
                     Popup(title="Pendaftaran Gagal", content=Label(text="Username sudah terdaftar!"), size_hint=(0.6, 0.4)).open()
                     return
@@ -218,7 +210,7 @@ class AdminScreen(Screen):
         self.layout.add_widget(Button(text="Logout", on_press=self.logout))
 
     def on_pre_enter(self, *args):
-        # Update pesan selamat datang untuk admin
+
         if self.current_user:
             self.welcome_label.text = f"Hi, Selamat datang {self.current_user}!"
         else:
