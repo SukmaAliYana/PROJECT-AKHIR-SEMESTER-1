@@ -160,6 +160,10 @@ class UserScreen(Screen):
         self.username = None
         self.current_user = None
         self.layout = BoxLayout(orientation='vertical', padding=100, spacing=10)
+
+        self.background_image = Image(source="C:/Users/Adam/OneDrive/Dokumen/RISET RIFQI/usser one piece.jpg", allow_stretch=True, keep_ratio=False)
+        self.add_widget(self.background_image)
+
         self.add_widget(self.layout)
 
         self.welcome_label = Label(text="", font_size=30, opacity=100)
