@@ -304,18 +304,10 @@ class AbsenPopup(Popup):
                     filename = filename.replace(".jpg", f"_{datetime.now().strftime('%H%M%S')}.jpg")
                 cv2.imwrite(filename, frame)
 
-                data = load_json(DATA_FILE, {})
-                if self.username not in data:
-                    data[self.username] = []
+                if not os.path.exists(DATA_FILE):
+                    data = {}
 
-                      # Jika user belum ada, buat list kosong
-                    data[self.username].append({
-                        'timestamp': datetime.now().isoformat(),
-                        'photo': filename,
-                        'uploaded': False  # Tanda belum diunggah
-                    })
-                
-                save_json(DATA_FILE, data)
+
                 self.image_preview.source = filename
                 self.image_preview.reload()
         except Exception as e:
