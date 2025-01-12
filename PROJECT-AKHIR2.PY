@@ -323,6 +323,9 @@ class AbsenPopup(Popup):
                     'uploaded': False
                 })
 
+                with open(DATA_FILE, 'w') as f:
+                    json.dump(data, f, indent=4)
+
                 self.image_preview.source = filename
                 self.image_preview.reload()
         except Exception as e:
