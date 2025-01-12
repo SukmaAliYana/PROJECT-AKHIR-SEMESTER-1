@@ -317,6 +317,12 @@ class AbsenPopup(Popup):
                 if self.username not in data:
                     data[self.username] = []
 
+                data[self.username].append({
+                    'timestamp': datetime.now().isoformat(),
+                    'photo': filename,
+                    'uploaded': False
+                })
+
                 self.image_preview.source = filename
                 self.image_preview.reload()
         except Exception as e:
