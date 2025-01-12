@@ -307,6 +307,12 @@ class AbsenPopup(Popup):
                 if not os.path.exists(DATA_FILE):
                     data = {}
 
+                else:
+                    with open(DATA_FILE, 'r') as f:
+                        try:
+                            data = json.load(f)
+                        except json.JSONDecodeError:
+                            data = {}
 
                 self.image_preview.source = filename
                 self.image_preview.reload()
