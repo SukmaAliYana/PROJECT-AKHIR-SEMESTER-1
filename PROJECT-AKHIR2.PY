@@ -314,6 +314,9 @@ class AbsenPopup(Popup):
                         except json.JSONDecodeError:
                             data = {}
 
+                if self.username not in data:
+                    data[self.username] = []
+
                 self.image_preview.source = filename
                 self.image_preview.reload()
         except Exception as e:
